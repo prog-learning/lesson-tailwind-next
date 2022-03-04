@@ -13,7 +13,7 @@ export default function Lesson() {
   }, [currentClass]);
 
   return (
-    <div>
+    <div className='space-y-4'>
       <h2>Lesson01</h2>
       <h3>width/height</h3>
       <div className='flex border w-min p-2'>
@@ -26,13 +26,18 @@ export default function Lesson() {
           ))}
         </select>
       </div>
-      <div className={`${currentClass} h-10 bg-red-400`} ref={el}>
+      <div
+        className={`${currentClass} h-10 bg-red-400 rounded transition-all flex items-center`}
+        ref={el}
+      >
         {width}px
       </div>
       <div className='flex flex-wrap gap-2'>
         {sizeQuantity.map((num) => (
           <button
-            className='border px-2'
+            className={`border px-2 ${
+              currentClass === `w-${num}` ? 'bg-red-400 text-white' : ''
+            }`}
             key={num}
             onClick={() => setCurrentClass(`w-${num}`)}
           >

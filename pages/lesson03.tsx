@@ -16,13 +16,13 @@ export default function Lesson() {
   console.log(currentClass);
 
   return (
-    <div>
-      <h2 className={currentClass}>Lesson01</h2>
-      <h3>余白系</h3>
-      <div className={`${currentClass} w-10 h-10`}></div>
+    <div className='space-y-4'>
+      <h2>Lesson03</h2>
+      <h3>色を変える</h3>
+      <div className={`${currentClass} w-20 h-20`}></div>
       {colors.map((color) => (
         <button
-          className='p-1 m-1 border-2 bg-blue-500'
+          className={`p-1 m-1 border-2 bg-${color}-400`}
           key={color}
           onClick={() => onChangeColor(color)}
         >
@@ -32,7 +32,9 @@ export default function Lesson() {
       <br />
       {darknessQuantities.map((num) => (
         <button
-          className='p-1 m-1 border-2 '
+          className={`p-1 m-1 border-2 bg-gray-${num} ${
+            Number(num) > 400 && 'text-white'
+          }`}
           key={num}
           onClick={() => onChangeDarkness(num)}
         >
